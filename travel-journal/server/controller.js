@@ -234,7 +234,7 @@ module.exports = {
     },
     getCountries: (req, res) => {
         sequelize.query(`
-            SELECT * FROM countries
+            SELECT * FROM countries;
         `)
             .then(dbRes => res.status(200).send(dbRes[0]))
     }, 
@@ -242,7 +242,7 @@ module.exports = {
         let {name, rating, countryID} = req.body
         sequelize.query(`
             INSERT INTO cities (name, rating, countryID)
-            VALUES (${name}, ${rating}, ${countryID})
+            VALUES (${name}, ${rating}, ${countryID});
         `)
             .then(dbRes => res.status(200).send(dbRes[0]))
     },
@@ -252,7 +252,7 @@ module.exports = {
         FROM cities
           JOIN countries 
             ON cities.country_id = countries.country_id
-        ORDER BY rating DESC
+        ORDER BY rating DESC;
 
         `)
             .then(dbRes => res.status(200).send(dbRes[0]))
@@ -262,7 +262,7 @@ module.exports = {
         sequelize.query(`
         DELETE 
         FROM cities
-        WHERE city_id = ${cityID}
+        WHERE city_id = ${cityID};
         `)
             .then(dbRes => res.status(200).send(dbRes[0]))
     }
