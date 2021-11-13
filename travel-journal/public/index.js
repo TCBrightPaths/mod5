@@ -1,3 +1,4 @@
+const axios = require('axios').default
 const form = document.querySelector('form')
 const nameInput = document.querySelector('#name-input')
 const countrySelect = document.querySelector('#country-select')
